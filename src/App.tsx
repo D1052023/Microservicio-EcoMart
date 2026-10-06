@@ -3,6 +3,8 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner';
 
+import Layout from './components/Layout';
+
 // Lazy loading de las páginas principales para Code Splitting
 const Home = React.lazy(() => import('./pages/Home'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
@@ -14,10 +16,12 @@ export default function App() {
     <Router>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/admin" element={<Admin />} />
+          </Route>
         </Routes>
       </Suspense>
     </Router>
