@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -14,9 +15,9 @@ export default function Home() {
             La plataforma líder en productos sustentables. Únete a nuestra misión de cuidar el planeta.
           </p>
           <div className="mt-10 flex space-x-4">
-            <button className="bg-white text-brand-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-brand-50 transition-colors shadow-lg">
+            <Link to="/dashboard" className="bg-white text-brand-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-brand-50 transition-colors shadow-lg">
               Explorar Productos
-            </button>
+            </Link>
           </div>
         </div>
       </div>
